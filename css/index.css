@@ -1,0 +1,652 @@
+/* Font */
+@font-face{
+	font-family: 'Lato_Regular'; 
+	src: url("font/Lato-Regular.ttf");
+}
+@font-face{
+	font-family: 'Lato_Bold'; 
+	src: url("font/Lato-Bold.ttf");
+}
+@font-face{
+	font-family: 'Lato_Italic'; 
+	src: url("font/Lato-Italic.ttf");
+}
+
+@keyframes buttonColor {
+  0% {background-color: rgb(29, 53, 87);}
+  50% {background-color: #35605a;}
+  100% {background-color: rgb(29, 53, 87);}
+}
+
+#headerExample, #headerMacro, .buttons, #run, .exampleCat div{
+	cursor: pointer;
+}
+
+.transi{
+	transition: all ease .8s;
+}
+.bold{
+	font-weight: bold;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+}
+p,h1,h2,h3,h4{
+	margin: 0;
+}
+
+body{
+	background-color: #eeeeee;
+	color: rgb(60, 64, 67);
+	font-family: 'Lato_Regular';
+	margin: 0;
+	overflow: hidden;
+}
+
+/* Nav part */
+nav{
+	height: 70px;
+	position: relative;
+	z-index: 2;
+	padding: 0 35px;
+	background-color:#011c27;
+	box-shadow: 0 4px 2px -2px #dcdcdc;
+	color: 	#eeeeee;
+	display: grid;
+	align-items: center;
+	grid-template-columns: 45px auto auto;
+}
+#connectedButton{
+	position: absolute;
+	right: -200px;
+	top: 70px;
+	background-color: #fff;
+	padding: 15px 25px;
+	color: #011c27;
+	transition: all ease 0.5s;
+}
+#connectedButton.active{
+	right: 0px;
+}
+.buttons_con{
+	cursor: pointer;
+}
+.buttons_con a{
+	color: #000;
+	text-decoration: none;
+}
+#menuAccount{
+	margin-left: 20px;
+	display: none;
+}
+#home{
+	font-size : 20px;
+	display :flex;
+	background-color : #50514f;
+	border-radius : 50%;
+	width : 45px;
+	height : 45px;
+	align-items : center;
+	justify-content: center;
+	color: #eeeeee;
+}
+
+nav h1{
+	display: inline-block;
+	margin-left : 15px;
+}
+nav h1 span{
+	font-size: 18px;
+	font-family: 'Lato_Italic'; 
+	font-weight: normal;
+	line-height: 70px;
+	vertical-align: 	middle;	
+}
+#controlButtons{
+	float: 	right;
+	display: 	flex;
+    align-items: center;
+    justify-content: flex-end;
+	grid-column : 3;
+}
+.buttons{
+	align-items: 	center;	
+	background-color: #35605a;
+	padding: 10px 15px;
+	border-radius: 4px;
+	margin-left: 10px;
+}
+#headerConnect{
+	height: 70px; 
+}
+
+#mainPart{
+	position: relative;
+	width: 100%;
+	height: calc(100% - 70px);
+}
+#leftPanel{
+	position: absolute;
+	height: 100%;
+	width: 40%;
+	z-index: 2;
+}
+#movableLeft{
+	right: -4px;
+	height: 100%;
+	width: 4px;
+	top: 0;
+	cursor: ew-resize;
+}
+#movableLeft:active::after{
+	content: "";
+	width: 1000px;
+	background-color: transparent;
+	height: 100%;
+	position: absolute;
+}
+#movableUp{
+	width: 100%;
+	height: 4px;
+	top: 0;
+	cursor: ns-resize;
+}
+.resize{
+	background-color: #011c27;
+	position: absolute;
+}
+.selectLeftPan{
+	width: 100%;
+	background-color: #35605a;
+	height: 50px; 
+	font-family: 'Lato_Bold';
+	letter-spacing: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.selectLeftPan p{
+	margin-left: 35px;
+	font-family: 'Lato_Bold';
+	font-size: 20px;
+	color: #eeeeee;
+}
+#triggerConsole{
+	height: 100%;
+	padding: 0 15px;
+	color: #fff;
+	line-height: 50px;
+	vertical-align: middle;
+	background-color: #FF4C00;
+}
+#logs{
+	overflow: scroll;
+	padding: 0px 10px;
+	position: relative;
+	height: 100%;
+}
+.logsInfo{
+	background-color: #fff;
+	border-bottom: 2px solid #000;
+	padding: 10px;
+	text-align: center;
+}
+#infosLogs{
+	position: absolute;
+	background-color: #ff8e00;
+	color: #fff;
+	padding: 8px;
+	top: 0px;
+	right: 0px;
+	z-index: 5;
+}
+.resLogs{
+	background-color: ivory;
+	padding: 3px 0 3px 50px;
+}
+#leftContent{
+	height: 100%;
+	overflow-x: hidden;
+	position: relative;
+}
+#newProject{
+	background-color: #eeeeee;
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate3d(-50%,-50%,0);
+	padding: 15px;
+	cursor: pointer;
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: 	center;	
+}
+#npSub{
+	text-align: center;	
+	color:gray;
+}
+#npSub img{
+	margin-bottom: 15px;
+}
+.modal{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	background-color: rgba(0,0,0,0.3);
+	z-index: 4;
+}
+.modalSub{
+	position: absolute;
+	font-family: 'Lato_Regular'; 
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%,-50%,0);
+	background-color: #eeeeee;
+	min-width: 50%; 
+}
+.modalHeader{
+	padding: 20px;
+	background-color: #e63946;
+	color: #eeeeee;
+}
+.modalContent{
+	padding: 20px;
+}
+.modalFooter{
+	background-color: #fff;
+	padding: 20px;
+	display: block;
+}
+#leaveModal{
+	position: absolute;
+	right: 20px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	color: 	#eeeeee;
+}
+#consoleMode{
+	height: calc(100% - 50px);
+	z-index: 1;
+}
+.console{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 100%;
+	transition: all ease .5s;
+	overflow: hidden;
+}
+.console.active{
+	left: 0%;
+}
+#consoleSub{
+	height: 95%;
+	padding: 0 10px;
+	font-size: 1.5em;
+	overflow: scroll;
+}
+#inputConsole{
+	font-size: 1.3em;
+	height: 5% !important;
+}
+#consoles{
+	height: calc(100% - 50px);
+	width: 100%;
+	position: relative;
+}
+#macros{
+	height: 50px;
+	position: relative;
+	overflow : hidden;
+}
+#macrosHeader{
+	height: 40px;
+}
+
+#macrosContent{
+	color : #35605a;
+	padding: 25px;
+	overflow : scroll;
+}
+
+#macrosContent > p{
+	font-size : 20px;
+}
+
+#macrosContent td{
+	border : 1px solid #35605a;
+	text-align : center;
+	padding : 0 5px;
+}
+
+#macrosContent table{
+	border-collapse : collapse;
+	margin : 10px 0;
+}
+
+#viewerPanel{
+	position: absolute;
+	width: 60%;
+	height: 100%;
+	margin-left: 40%;
+	overflow: hidden;
+}
+form input[type=text], form input[type=password], form input[type=email], form label,form textarea{
+	display: block;
+	padding: 8px 0;
+	width: 100%;
+}
+#run{
+	position: absolute;
+	left: 15px;
+	top: -60px;
+	display: none;
+	background-color: #1d3557;
+	color: #eeeeee;
+	padding: 15px;
+	border-radius: 4px;
+}
+#run.active{
+	display: block;
+	animation: buttonColor 1s infinite;
+}
+#viewer{
+	height: 100%;
+}
+#viewerSettings {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+#viewerSettings i{
+	display: block;
+	margin: 15px;
+	color: gray;
+}
+#viewerSettings i.active{
+	color: #011c27;
+}
+i{
+	cursor: pointer;
+}
+
+#presentationMode{
+	margin: 0 5px;
+	padding: 10px;
+}
+#presentationMode.active{
+	background-color: #35605a;
+	border-radius: 25px;
+}
+iframe{
+	width: 100%;
+	height: 50%;
+}
+iframe.active{
+	height: 100%;
+}
+#viewerGAViewer{
+	width: 100%;
+	height: 100%;
+}
+#examples{
+	position: absolute;
+	top: calc(100% - 50px);
+	width: 100%;
+	height: 50%;
+	display: block;
+}
+
+#headerExample, #allEx{
+	display : none;
+}
+
+#examples.active{
+	top:50%;
+}
+#allEx{
+	color : #35605a;
+	padding: 25px;
+	overflow: scroll;
+	height: calc(100% - 100px);
+}
+#allEx img{
+	width: 100px;
+	height: auto;
+	border : solid 2px #35605a;
+	border-radius : 5px;
+}
+
+.exTitles{
+	font-size : 20px;
+	margin-bottom : 10px;
+	margin-left : 10px;
+}
+
+.exampleCat{
+	display : flex;
+	flex-direction : row;
+	flex-wrap : wrap;
+	font-size : 14px;
+	margin-bottom : 25px;
+}
+
+.exampleCat > div{
+	margin: 10px;
+}
+
+#projInfos{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 10px 15px;
+	font-size: 0.9em;
+	background-color: #eeeeee;
+	box-shadow: 2px 2px 2px #dcdcdc;
+}
+
+#pop_up_black{
+	color : white;
+	display: none;
+	background-color: rgba(0,0,0,0.75);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	z-index: 3;
+}
+
+#pop_up_black.active{
+	display : flex;
+	justify-content : center;
+}
+
+.save_header {
+	width : 100%;
+	display : flex;
+	justify-content : space-between;
+	align-self : flex-start;
+	font-weight : bold;
+	font-size : 20px;
+}
+
+.save_header i{
+	margin-right: 5px;
+	background-color : #eeeeee;
+	color : #35605a;
+	border-radius : 50%;
+	height : 30px;
+	width : 30px;
+	display : flex;
+	align-items : center;
+	justify-content : center;
+	cursor : default;
+}
+
+.title_icon{
+	display : flex;
+	align-items : center;
+}
+
+.cross{
+	font-weight : bold;
+	position : relative;
+	top : -5px;
+	cursor : pointer;
+}
+
+.cross:hover{
+	color : #011c27;
+}
+
+.pop_up{
+	display : none;
+	background-color: rgba(53,96,90,1);
+	width : 75%;
+	margin : auto;
+	padding : 10px;
+	border : solid 3px #eeeeee;
+	border-radius : 9px;
+	flex-direction : column;
+	align-items : center;
+}
+
+.pop_up.active{
+	display : flex;
+}
+
+.message_info{
+	color : #011c27;
+	font-weight : bold;
+	margin : 15px 0 30px 0;
+}
+
+#account{
+	display : flex;
+	width : 100%;
+	justify-content : center;
+}
+
+#sign_in{
+	border-right : solid #eeeeee 2px;
+}
+
+#account > div > p{
+	font-weight : bold;
+	margin-bottom : 15px;
+	font-size : 18px;
+}
+
+#account > div{
+	display : flex;
+	flex-direction : column;
+	align-items : center;
+	padding : 0 7%;
+}
+
+#account > div > form > p{
+	display : flex;
+	flex-wrap : wrap;
+	font-family : inherit;
+	color : inherit;
+}
+
+.pop_up input[type=text], .pop_up input[type=password], .pop_up input[type=email]{
+	height : 0.5em;
+	color : inherit;
+	background-color : #47827a;
+	border : solid #eeeeee 2px;
+	width : 100%;
+}
+
+.validate_pop_up{
+	background-color : #eeeeee;
+	color : #011c27;
+	padding : 5px;
+	font-weight : 20px;
+	border-radius : 5px;
+	align-self : flex-end;
+	margin-top : 15px;
+}
+
+.validate_pop_up:hover{
+	color : #eeeeee;
+	background-color : #011c27;
+}
+
+.pop_up label{
+	margin-right : 10px;
+}
+
+#name_project form p{
+	width : 100%;
+}
+
+.pp_label{
+	width : auto;
+}
+
+form > p{
+	display : flex;
+	align-items : center;
+	justify-content : center;
+}
+
+#sharePanel{
+	position: absolute;
+	height: 100%;
+	width: 50%;
+	right: -50%;
+	background-color: #fff;
+	text-align: center;
+	display: none;
+}
+#shareIcon{
+	position: absolute;
+	left: -40px;
+	top:20px;
+}
+#sharePanel.active{
+	right: 0px;
+}
+#shareInfos{
+	padding: 15px;
+}
+.shareParts>*{
+	width: 100%;
+}
+.shareParts{
+	border-bottom: 1px solid #dcdcdc;
+	padding: 5px 0;
+}
+.shareTitle{
+	text-decoration: underline;
+	padding-bottom: 15px;
+}
+.coworkersCont{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#submitCoword{
+	display: inline-block;
+	background: #011c27;
+	width: auto;
+	padding: 5px 15px;
+	margin-top: 15px;
+	color: #fff;
+	cursor: pointer;
+}
+
+
+@media(max-width: 565px){
+	#nav > h1 > span{
+		display : none;
+	}
+}
